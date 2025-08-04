@@ -6,9 +6,14 @@ public class FadeController : MonoBehaviour
 {
     public static FadeController Instance;
 
+    [Header("Fade Settings")]
     [SerializeField] private Image fadeImage;
-    [SerializeField] private float fadeOutDuration = 0.3f; // Fast fade to black
-    [SerializeField] private float fadeInDuration = 1.5f;  // Slower fade back
+    [SerializeField] private float fadeOutDuration = 0.3f;        // Fast fade to black
+    [SerializeField] private float fadeInDuration = 1.5f;         // Slower fade back in
+    [SerializeField] private float fadeInFastThreshold = 0.7f;    // When fade speeds up
+    [SerializeField] private float fadeInFastMultiplier = 2f;     // How much faster
+
+    public bool IsFading { get; private set; }
 
     private void Awake()
     {
@@ -18,7 +23,27 @@ public class FadeController : MonoBehaviour
             Destroy(gameObject);
     }
 
-    public IEnumerator Fade(float from, float to, float duration)
+    public IEnumerator FadeTransition(System.Action onFadeMiddle)
+    {
+        if (IsFading) yield break;
+        IsFading = true;
+
+        SetPlayerMovement(false);
+
+        // Fade to black
+        yield return Fade(0f, 1f, fadeOutDuration);
+
+        // Perform the event (e.g., teleport, camera change)
+        onFadeMiddle?.Invoke();
+        yield return new WaitForSeconds(0.2f);
+
+        // Fade back in (and unlock player partway through)
+        yield return FadeBackSmart();
+
+        IsFading = false;
+    }
+
+    private IEnumerator Fade(float from, float to, float duration)
     {
         float time = 0f;
         Color color = fadeImage.color;
@@ -36,19 +61,52 @@ public class FadeController : MonoBehaviour
         fadeImage.color = color;
     }
 
-    public IEnumerator FadeTransition(System.Action onFadeMiddle)
+    private IEnumerator FadeBackSmart()
     {
-        // Fade to black fast
-        yield return Fade(0f, 1f, fadeOutDuration);
+        float time = 0f;
+        float duration = fadeInDuration;
+        bool movementUnlocked = false;
+        Color color = fadeImage.color;
 
-        // Do teleport/sound while screen is black
-        onFadeMiddle?.Invoke();
-        yield return new WaitForSeconds(0.2f);
+        while (time < duration)
+        {
+            float t = time / duration;
 
-        // Fade back in slowly
-        yield return Fade(1f, 0f, fadeInDuration);
+            // Let the player move once screen is ~30% visible
+            if (!movementUnlocked && t > 0.5f)
+            {
+                SetPlayerMovement(true);
+                movementUnlocked = true;
+            }
+
+            // Accelerate fade after threshold
+            if (t > fadeInFastThreshold)
+                time += Time.deltaTime * fadeInFastMultiplier;
+            else
+                time += Time.deltaTime;
+
+            color.a = Mathf.Lerp(1f, 0f, t);
+            fadeImage.color = color;
+            yield return null;
+        }
+
+        // Ensure it's fully transparent at the end
+        color.a = 0f;
+        fadeImage.color = color;
     }
 
+    private void SetPlayerMovement(bool canMove)
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            PlayerMovement moveScript = player.GetComponent<PlayerMovement>();
+            if (moveScript != null)
+                moveScript.SetCanMove(canMove);
+        }
+    }
+
+    // Optional: manual fade control (for cutscenes, etc.)
     public void FadeIn() => StartCoroutine(Fade(1f, 0f, fadeInDuration));
     public void FadeOut() => StartCoroutine(Fade(0f, 1f, fadeOutDuration));
 }

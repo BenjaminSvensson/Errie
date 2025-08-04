@@ -26,8 +26,22 @@ public class PlayerMovement : MonoBehaviour
         controller = GetComponent<CharacterController>();
     }
 
+    private bool canMove = true;
+
+    public void SetCanMove(bool value)
+    {
+        canMove = value;
+    }
+
     void Update()
     {
+        // Gravity
+        velocity.y += gravity * Time.deltaTime;
+        controller.Move(Vector3.up * velocity.y * Time.deltaTime);
+        
+        if (!canMove)
+            return;
+         
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         if (isGrounded && velocity.y < 0f)
@@ -60,9 +74,6 @@ public class PlayerMovement : MonoBehaviour
         {
             velocity.y += gravity * (fallMultiplier - 1) * Time.deltaTime;
         }
-
-        // Gravity
-        velocity.y += gravity * Time.deltaTime;
-        controller.Move(Vector3.up * velocity.y * Time.deltaTime);
+        
     }
 }

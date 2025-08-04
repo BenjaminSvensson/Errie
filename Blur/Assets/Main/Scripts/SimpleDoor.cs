@@ -5,13 +5,15 @@ public class SimpleDoor : MonoBehaviour, IInteractable
 {
     [SerializeField] private Transform destinationPoint;
     [SerializeField] private AudioClip doorSound;
-    [SerializeField] private string messageOnUse = "You go through the door.";
 
     public void OnInteract(PlayerInventory inventory)
-    {
-        Debug.Log(messageOnUse);
-        StartCoroutine(DoTransition());
-    }
+{
+    if (FadeController.Instance.IsFading)
+        return;
+        
+    StartCoroutine(DoTransition());
+}
+
 
     private IEnumerator DoTransition()
     {

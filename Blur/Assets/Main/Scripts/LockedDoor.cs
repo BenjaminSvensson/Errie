@@ -13,6 +13,9 @@ public class LockedDoor : MonoBehaviour, IInteractable
 
     public void OnInteract(PlayerInventory inventory)
     {
+        if (FadeController.Instance.IsFading)
+        return;
+
         if (isOpen)
         {
             StartCoroutine(DoTransition());
