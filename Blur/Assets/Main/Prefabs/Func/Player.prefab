@@ -41,8 +41,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4655875713004710121}
   - component: {fileID: 230876438046062303}
-  - component: {fileID: 6108504319794950992}
   - component: {fileID: 3704778143329387074}
+  - component: {fileID: 6108504319794950992}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -90,6 +90,23 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &3704778143329387074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7769639862346632715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44bf1e35641803342af21cf7c2a7bba9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactRange: 3
+  interactLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  interactKey: 101
 --- !u!143 &6108504319794950992
 CharacterController:
   m_ObjectHideFlags: 0
@@ -115,18 +132,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.4, z: 0}
---- !u!114 &3704778143329387074
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7769639862346632715}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44bf1e35641803342af21cf7c2a7bba9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &4348944008429249389
 PrefabInstance:
   m_ObjectHideFlags: 0
