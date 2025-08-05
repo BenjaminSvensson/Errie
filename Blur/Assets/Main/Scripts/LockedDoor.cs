@@ -14,7 +14,7 @@ public class LockedDoor : MonoBehaviour, IInteractable
     public void OnInteract(PlayerInventory inventory)
     {
         if (FadeController.Instance.IsFading)
-        return;
+            return;
 
         if (isOpen)
         {
@@ -24,13 +24,14 @@ public class LockedDoor : MonoBehaviour, IInteractable
 
         if (inventory.HasItem(requiredItemID))
         {
-            Debug.Log(messageIfUnlocked);
+            ScreenDebug.Instance.ShowMessage(messageIfUnlocked);
             isOpen = true;
             StartCoroutine(DoTransition());
         }
         else
         {
-            Debug.Log(messageIfLocked);
+            ScreenDebug.Instance.ShowMessage(messageIfLocked);
+            Shake();
         }
     }
 
@@ -53,4 +54,28 @@ public class LockedDoor : MonoBehaviour, IInteractable
                 AudioSource.PlayClipAtPoint(doorSound, player.transform.position);
         });
     }
+    
+    public void Shake(float duration = 0.2f, float magnitude = 0.05f)
+    {
+    StartCoroutine(ShakeCoroutine(duration, magnitude));
+    }
+
+    private IEnumerator ShakeCoroutine(float duration, float magnitude)
+    {
+        Vector3 originalPos = transform.localPosition;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            float x = Random.Range(-0.4f, 0.4f) * magnitude;
+            float y = Random.Range(-0.4f, 0.4f) * magnitude;
+
+            transform.localPosition = originalPos + new Vector3(x, y, 0f);
+
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        transform.localPosition = originalPos;
+    }   
 }

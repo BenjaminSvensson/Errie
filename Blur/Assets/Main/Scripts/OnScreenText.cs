@@ -1,14 +1,18 @@
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 using System.Collections;
 
-public class OnScreenText : MonoBehaviour
+public class ScreenDebug : MonoBehaviour
 {
-    public static OnScreenText Instance;
+    public static ScreenDebug Instance;
 
-    [SerializeField] private Text debugText; // Assign in inspector
+    [Header("UI Reference")]
+    [SerializeField] private TextMeshProUGUI debugText;
+
+    [Header("Typing Settings")]
     [SerializeField] private float typeDelay = 0.03f;
     [SerializeField] private float visibleDuration = 2f;
+    [SerializeField] private float fadeOutTime = 0.5f;
 
     private Coroutine currentRoutine;
 
@@ -18,6 +22,9 @@ public class OnScreenText : MonoBehaviour
             Instance = this;
         else
             Destroy(gameObject);
+
+        // Optional: Hide text on start
+        SetAlpha(0f);
     }
 
     public void ShowMessage(string message)
@@ -31,7 +38,7 @@ public class OnScreenText : MonoBehaviour
     private IEnumerator TypeText(string message)
     {
         debugText.text = "";
-        debugText.color = new Color(debugText.color.r, debugText.color.g, debugText.color.b, 1);
+        SetAlpha(1f);
 
         foreach (char c in message)
         {
@@ -41,18 +48,23 @@ public class OnScreenText : MonoBehaviour
 
         yield return new WaitForSeconds(visibleDuration);
 
-        // Fade out
-        float fadeTime = 0.5f;
         float t = 0f;
-        Color original = debugText.color;
-        while (t < fadeTime)
+        while (t < fadeOutTime)
         {
-            float a = Mathf.Lerp(1f, 0f, t / fadeTime);
-            debugText.color = new Color(original.r, original.g, original.b, a);
+            float alpha = Mathf.Lerp(1f, 0f, t / fadeOutTime);
+            SetAlpha(alpha);
             t += Time.deltaTime;
             yield return null;
         }
 
+        SetAlpha(0f);
         debugText.text = "";
+    }
+
+    private void SetAlpha(float alpha)
+    {
+        Color c = debugText.color;
+        c.a = alpha;
+        debugText.color = c;
     }
 }
