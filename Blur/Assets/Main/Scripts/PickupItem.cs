@@ -1,15 +1,21 @@
 using UnityEngine;
 
-public class PickupItem : MonoBehaviour, IInteractable
+public class PickupItem : MonoBehaviour, InteractibleObjects
 {
     [SerializeField] private string itemID;
-    [SerializeField] private string itemName;
 
     public void OnInteract(PlayerInventory inventory)
     {
-        inventory.PickUpItem(itemID);
-        ScreenDebug.Instance.ShowMessage("You picked up " + itemName);
-        Destroy(gameObject);
+        GameObject prefab = ItemDatabase.Instance.GetItemPrefab(itemID);
 
+        if (prefab == null)
+        {
+            Debug.LogError($"ItemDatabase: No prefab found for itemID: {itemID}");
+            return;
+        }
+
+        inventory.PickUpItem(itemID, prefab, transform.position);
+        ScreenDebug.Instance.ShowMessage("Picked up " + itemID);
+        Destroy(gameObject);
     }
 }

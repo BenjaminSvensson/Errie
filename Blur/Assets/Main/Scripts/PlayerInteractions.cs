@@ -6,21 +6,28 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] private LayerMask interactLayer;
     [SerializeField] private KeyCode interactKey = KeyCode.E;
 
+    private Transform cachedTransform;
+
+    private void Awake()
+    {
+        cachedTransform = transform;
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(interactKey))
         {
-            Collider[] hits = Physics.OverlapSphere(transform.position, interactRadius, interactLayer);
+            Collider[] hits = Physics.OverlapSphere(cachedTransform.position, interactRadius, interactLayer);
 
             float closestDist = Mathf.Infinity;
-            IInteractable closestInteractable = null;
+            InteractibleObjects closestInteractable = null;
 
             foreach (Collider hit in hits)
             {
-                IInteractable interactable = hit.GetComponent<IInteractable>();
+                InteractibleObjects interactable = hit.GetComponent<InteractibleObjects>();
                 if (interactable != null)
                 {
-                    float dist = Vector3.Distance(transform.position, hit.transform.position);
+                    float dist = Vector3.Distance(cachedTransform.position, hit.transform.position);
                     if (dist < closestDist)
                     {
                         closestDist = dist;
@@ -29,16 +36,19 @@ public class PlayerInteraction : MonoBehaviour
                 }
             }
 
-            if (closestInteractable != null)
+            if (closestInteractable != null && PlayerInventory.Instance != null)
             {
                 closestInteractable.OnInteract(PlayerInventory.Instance);
+            }
+            else
+            {
+                // Optional: Debug.Log("Nothing to interact with nearby");
             }
         }
     }
 
     private void OnDrawGizmosSelected()
     {
-        // For debugging the interaction radius
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, interactRadius);
     }

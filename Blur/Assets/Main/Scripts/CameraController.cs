@@ -12,6 +12,13 @@ public class CameraController : MonoBehaviour
     void Awake()
     {
         Instance = this;
+        
+        if (Instance == null)
+        {
+            Debug.LogError("CameraController Instance is missing!");
+            return;
+        }
+
         targetPosition = transform.position;
         targetRotation = transform.rotation;
     }
@@ -20,7 +27,7 @@ public class CameraController : MonoBehaviour
     {
         // Smooth move
         transform.position = Vector3.Lerp(transform.position, targetPosition, smoothSpeed * Time.deltaTime);
-        
+
         // Smooth rotate
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, smoothSpeed * Time.deltaTime);
     }
@@ -30,4 +37,6 @@ public class CameraController : MonoBehaviour
         targetPosition = newPosition;
         targetRotation = newRotation;
     }
+    
+    
 }

@@ -1,13 +1,14 @@
 using UnityEngine;
 using System.Collections;
 
-public class LockedDoor : MonoBehaviour, IInteractable
+public class LockedDoor : MonoBehaviour, InteractibleObjects
 {
     [SerializeField] private string requiredItemID;
     [SerializeField] private string messageIfLocked = "It's locked.";
     [SerializeField] private string messageIfUnlocked = "You used the key.";
     [SerializeField] private Transform destinationPoint;
     [SerializeField] private AudioClip doorSound;
+    [SerializeField] private AudioClip doorLockedSound;
 
     private bool isOpen = false;
 
@@ -26,8 +27,13 @@ public class LockedDoor : MonoBehaviour, IInteractable
         {
             ScreenDebug.Instance.ShowMessage(messageIfUnlocked);
             isOpen = true;
+
+           
+            inventory.UseHeldItem();
+
             StartCoroutine(DoTransition());
         }
+
         else
         {
             ScreenDebug.Instance.ShowMessage(messageIfLocked);
@@ -49,15 +55,21 @@ public class LockedDoor : MonoBehaviour, IInteractable
 
             if (cc) cc.enabled = true;
 
-            // Play sound
             if (doorSound != null)
                 AudioSource.PlayClipAtPoint(doorSound, player.transform.position);
         });
     }
-    
+
     public void Shake(float duration = 0.2f, float magnitude = 0.05f)
     {
-    StartCoroutine(ShakeCoroutine(duration, magnitude));
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        StartCoroutine(ShakeCoroutine(duration, magnitude));
+
+        if (doorLockedSound != null)
+        {
+            AudioSource.PlayClipAtPoint(doorLockedSound, player.transform.position);
+        }
+
     }
 
     private IEnumerator ShakeCoroutine(float duration, float magnitude)
@@ -78,4 +90,5 @@ public class LockedDoor : MonoBehaviour, IInteractable
 
         transform.localPosition = originalPos;
     }   
+    
 }

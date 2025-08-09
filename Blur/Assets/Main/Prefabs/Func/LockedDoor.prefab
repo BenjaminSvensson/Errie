@@ -50,7 +50,8 @@ MonoBehaviour:
   messageIfLocked: Its locked.
   messageIfUnlocked: You use the key.
   destinationPoint: {fileID: 0}
-  doorSound: {fileID: 0}
+  doorSound: {fileID: 8300000, guid: b2a0534901c2768479b35354f85b5fbe, type: 3}
+  doorLockedSound: {fileID: 8300000, guid: ae62d7415a2d9994d81a8e195164086b, type: 3}
 --- !u!65 &7063276814616660092
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -70,8 +71,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.48886108, y: 3.5622137, z: 1.2525306}
-  m_Center: {x: -0.024346352, y: 1.2811068, z: 0.0077090263}
+  m_Size: {x: 0.48886108, y: 3.5622137, z: 1.8252088}
+  m_Center: {x: -0.024346352, y: 1.2811068, z: -0.008213103}
 --- !u!1001 &7762325255537256578
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -80,6 +81,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4228193443592075690}
     m_Modifications:
+    - target: {fileID: 13373889521093207, guid: 689430a0ed684b548bf7a45d8b0c767a, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: bc615a38df568124cb712315942c56a4, type: 2}
+    - target: {fileID: 29291599647982797, guid: 689430a0ed684b548bf7a45d8b0c767a, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: cc22075617ee65f45b34a32c7840e025, type: 2}
+    - target: {fileID: 2796810326091564026, guid: 689430a0ed684b548bf7a45d8b0c767a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.182
+      objectReference: {fileID: 0}
+    - target: {fileID: 2796810326091564026, guid: 689430a0ed684b548bf7a45d8b0c767a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.41
+      objectReference: {fileID: 0}
     - target: {fileID: 4116659087316176674, guid: 689430a0ed684b548bf7a45d8b0c767a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -123,6 +140,18 @@ PrefabInstance:
     - target: {fileID: 4900882267138158043, guid: 689430a0ed684b548bf7a45d8b0c767a, type: 3}
       propertyPath: m_Name
       value: DoorVisualPlaceholder
+      objectReference: {fileID: 0}
+    - target: {fileID: 7579951997801959541, guid: 689430a0ed684b548bf7a45d8b0c767a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3.6153002
+      objectReference: {fileID: 0}
+    - target: {fileID: 7579951997801959541, guid: 689430a0ed684b548bf7a45d8b0c767a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7579951997801959541, guid: 689430a0ed684b548bf7a45d8b0c767a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.28
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

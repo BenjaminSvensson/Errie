@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class SimpleDoor : MonoBehaviour, IInteractable
+public class SimpleDoor : MonoBehaviour, InteractibleObjects
 {
     [SerializeField] private Transform destinationPoint;
     [SerializeField] private AudioClip doorSound;
