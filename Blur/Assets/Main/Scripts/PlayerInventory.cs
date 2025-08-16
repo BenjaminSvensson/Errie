@@ -46,12 +46,6 @@ public class PlayerInventory : MonoBehaviour
 
     public void DropItem()
     {
-        if (string.IsNullOrEmpty(heldItemID) || heldItemPrefab == null)
-        {
-            Debug.LogWarning("No prefab assigned for held item!");
-            return;
-        }
-
         Vector3 dropPosition = dropOrigin ? dropOrigin.position : transform.position + transform.forward;
         GameObject droppedItem = Instantiate(heldItemPrefab, dropPosition, Quaternion.identity);
 

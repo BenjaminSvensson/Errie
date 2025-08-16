@@ -8,10 +8,10 @@ public class FadeController : MonoBehaviour
 
     [Header("Fade Settings")]
     [SerializeField] private Image fadeImage;
-    [SerializeField] private float fadeOutDuration = 0.3f;        // Fast fade to black
-    [SerializeField] private float fadeInDuration = 1.5f;         // Slower fade back in
-    [SerializeField] private float fadeInFastThreshold = 0.7f;    // When fade speeds up
-    [SerializeField] private float fadeInFastMultiplier = 2f;     // How much faster
+    [SerializeField] private float fadeOutDuration = 0.3f;
+    [SerializeField] private float fadeInDuration = 1.5f;
+    [SerializeField] private float fadeInFastThreshold = 0.7f;
+    [SerializeField] private float fadeInFastMultiplier = 2f;
 
     public bool IsFading { get; private set; }
 
@@ -30,14 +30,13 @@ public class FadeController : MonoBehaviour
 
         SetPlayerMovement(false);
 
-        // Fade to black
+        // Fades to black and lock player movement
         yield return Fade(0f, 1f, fadeOutDuration);
 
-        // Perform the event (e.g., teleport, camera change)
         onFadeMiddle?.Invoke();
         yield return new WaitForSeconds(0.2f);
 
-        // Fade back in (and unlock player partway through)
+        // Fades back and unlock player movement
         yield return FadeBackSmart();
 
         IsFading = false;
@@ -89,8 +88,6 @@ public class FadeController : MonoBehaviour
             fadeImage.color = color;
             yield return null;
         }
-
-        // Ensure it's fully transparent at the end
         color.a = 0f;
         fadeImage.color = color;
     }
@@ -106,7 +103,7 @@ public class FadeController : MonoBehaviour
         }
     }
 
-    // Optional: manual fade control (for cutscenes, etc.)
     public void FadeIn() => StartCoroutine(Fade(1f, 0f, fadeInDuration));
     public void FadeOut() => StartCoroutine(Fade(0f, 1f, fadeOutDuration));
+    
 }

@@ -12,10 +12,10 @@ public class CameraController : MonoBehaviour
     void Awake()
     {
         Instance = this;
-        
+
         if (Instance == null)
         {
-            Debug.LogError("CameraController Instance is missing!");
+            Debug.LogError("No CC Set?");
             return;
         }
 
@@ -25,10 +25,8 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        // Smooth move
         transform.position = Vector3.Lerp(transform.position, targetPosition, smoothSpeed * Time.deltaTime);
 
-        // Smooth rotate
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, smoothSpeed * Time.deltaTime);
     }
 
@@ -37,6 +35,5 @@ public class CameraController : MonoBehaviour
         targetPosition = newPosition;
         targetRotation = newRotation;
     }
-    
     
 }

@@ -40,10 +40,6 @@ public class PlayerInteraction : MonoBehaviour
             {
                 closestInteractable.OnInteract(PlayerInventory.Instance);
             }
-            else
-            {
-                // Optional: Debug.Log("Nothing to interact with nearby");
-            }
         }
     }
 

@@ -23,8 +23,7 @@ public class ScreenDebug : MonoBehaviour
         else
             Destroy(gameObject);
 
-        // Optional: Hide text on start
-        SetAlpha(0f);
+            SetAlpha(0f);
     }
 
     public void ShowMessage(string message)
