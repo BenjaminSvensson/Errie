@@ -1,25 +1,32 @@
 using UnityEngine;
+
 public class WorldEndEvent : MonoBehaviour
 {
-    public int endHour = 18;
+    [Header("End Time")]
+    [Range(0, 23)] public int endHour = 23;
+    [Range(0, 59)] public int endMinute = 59;
 
-    void OnEnable()
+    private void OnEnable()
     {
-        GameClock.Instance.OnTimeChanged += CheckEnd;
+        GameClock.OnMinuteChanged += CheckEnd;
     }
 
-    void OnDisable()
+    private void OnDisable()
     {
-        GameClock.Instance.OnTimeChanged -= CheckEnd;
+        GameClock.OnMinuteChanged -= CheckEnd;
     }
 
-    void CheckEnd(int hour, int minute)
+    private void CheckEnd(int hour, int minute)
     {
-        if (hour >= endHour)
+        if (hour == endHour && minute == endMinute)
         {
-            Debug.Log("💀 World ended!");
-            // Fade to black, restart loop, etc.
-            GameClock.Instance.OnTimeChanged -= CheckEnd;
+            TriggerWorldEnd();
         }
+    }
+
+    private void TriggerWorldEnd()
+    {
+        Debug.Log("World ends here!");
+        // TODO: fade to black, game over, cutscene, etc.
     }
 }

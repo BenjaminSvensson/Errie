@@ -1,75 +1,48 @@
 using UnityEngine;
-using TMPro;
-using System.Collections.Generic;
+using System;
 
 public class GameClock : MonoBehaviour
 {
-    public static GameClock Instance;
-
     [Header("Clock Settings")]
-    public int startHour = 8;
+    public int startHour = 0;
     public int startMinute = 0;
-    public float timeScale = 60f; 
-    // 1 real second = 1 in-game minute if timeScale = 60
+    public float realSecondsPerGameMinute = 1f; // 1 real sec = 1 in-game minute
 
-    private int currentHour;
-    private int currentMinute;
+    public static int CurrentHour { get; private set; }
+    public static int CurrentMinute { get; private set; }
+
     private float timer;
 
-    [Header("UI / World Displays")]
-    public List<TextMeshProUGUI> uiClocks = new List<TextMeshProUGUI>(); // Canvas TMP
-    public List<TextMeshPro> worldClocks = new List<TextMeshPro>(); // 3D TMP
+    public static event Action<int, int> OnMinuteChanged;
 
-    public delegate void TimeChanged(int hour, int minute);
-    public event TimeChanged OnTimeChanged;
-
-    void Awake()
+    private void Start()
     {
-        if (Instance == null) Instance = this;
-        currentHour = startHour;
-        currentMinute = startMinute;
+        CurrentHour = startHour;
+        CurrentMinute = startMinute;
     }
 
-    void Update()
+    private void Update()
     {
-        timer += Time.deltaTime * timeScale;
+        timer += Time.deltaTime;
 
-        if (timer >= 60f)
+        if (timer >= realSecondsPerGameMinute)
         {
-            timer -= 60f;
-            currentMinute++;
-
-            if (currentMinute >= 60)
-            {
-                currentMinute = 0;
-                currentHour++;
-                if (currentHour >= 24) currentHour = 0;
-            }
-
-            OnTimeChanged?.Invoke(currentHour, currentMinute);
-            UpdateAllDisplays();
+            timer = 0f;
+            AdvanceMinute();
         }
     }
 
-    private void UpdateAllDisplays()
+    private void AdvanceMinute()
     {
-        string timeText = $"{currentHour:D2}:{currentMinute:D2}";
-
-        // Update UI TMPs
-        foreach (var uiClock in uiClocks)
+        CurrentMinute++;
+        if (CurrentMinute >= 60)
         {
-            if (uiClock != null)
-                uiClock.text = timeText;
+            CurrentMinute = 0;
+            CurrentHour++;
+            if (CurrentHour >= 24)
+                CurrentHour = 0;
         }
 
-        // Update 3D TMPs
-        foreach (var worldClock in worldClocks)
-        {
-            if (worldClock != null)
-                worldClock.text = timeText;
-        }
+        OnMinuteChanged?.Invoke(CurrentHour, CurrentMinute);
     }
-
-    public int GetHour() => currentHour;
-    public int GetMinute() => currentMinute;
 }

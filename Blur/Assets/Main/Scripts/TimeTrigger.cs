@@ -2,34 +2,27 @@ using UnityEngine;
 
 public class TimeTrigger : MonoBehaviour
 {
-    [Header("Trigger Time")]
-    public int triggerHour = 14;
-    public int triggerMinute = 30;
+    [Header("Target Time")]
+    [Range(0, 23)] public int targetHour;
+    [Range(0, 59)] public int targetMinute;
 
-    private bool triggered = false;
+    public UnityEngine.Events.UnityEvent onTimeReached;
 
-    void OnEnable()
+    private void OnEnable()
     {
-        GameClock.Instance.OnTimeChanged += CheckTime;
+        GameClock.OnMinuteChanged += CheckTime;
     }
 
-    void OnDisable()
+    private void OnDisable()
     {
-        GameClock.Instance.OnTimeChanged -= CheckTime;
+        GameClock.OnMinuteChanged -= CheckTime;
     }
 
-    void CheckTime(int hour, int minute)
+    private void CheckTime(int hour, int minute)
     {
-        if (!triggered && hour == triggerHour && minute == triggerMinute)
+        if (hour == targetHour && minute == targetMinute)
         {
-            triggered = true;
-            TriggerEvent();
+            onTimeReached.Invoke();
         }
-    }
-
-    void TriggerEvent()
-    {
-        Debug.Log($"{gameObject.name} triggered at {triggerHour:D2}:{triggerMinute:D2}");
-        // Do your event: enemy spawns, power shuts down, cutscene, etc.
     }
 }
