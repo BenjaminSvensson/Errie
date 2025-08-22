@@ -48,7 +48,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemID: RoomKey
-  itemPrefab: {fileID: 7064144876863802549}
 --- !u!65 &3017879707672327629
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -64,12 +63,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.17809296, y: 0.23617041, z: 0.8148682}
-  m_Center: {x: 0.007475853, y: 0.11378315, z: 0.00049459934}
+  m_Size: {x: 0.26189628, y: 0.14634681, z: 0.6715463}
+  m_Center: {x: -0.016068773, y: 0.028891563, z: 0.23184848}
 --- !u!54 &7649427900717753794
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -115,7 +114,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6488888167233322265, guid: d096bbe39904deb48bd0c230678a82a2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6488888167233322265, guid: d096bbe39904deb48bd0c230678a82a2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -152,39 +151,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4545302171039241889, guid: d096bbe39904deb48bd0c230678a82a2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6766108149431962467}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d096bbe39904deb48bd0c230678a82a2, type: 3}
 --- !u!4 &605086560062473542 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6488888167233322265, guid: d096bbe39904deb48bd0c230678a82a2, type: 3}
   m_PrefabInstance: {fileID: 5938165904546101343}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &7889376719890902782 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4545302171039241889, guid: d096bbe39904deb48bd0c230678a82a2, type: 3}
-  m_PrefabInstance: {fileID: 5938165904546101343}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &6766108149431962467
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7889376719890902782}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
