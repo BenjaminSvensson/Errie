@@ -17,6 +17,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float groundDistance = 0.2f;
     [SerializeField] private LayerMask groundMask;
 
+    [Header("Animation")]
+    [SerializeField] private Animator animator; // <- Drag your Animator here in the Inspector
+    private readonly int animSpeedHash = Animator.StringToHash("Speed"); 
+    private readonly int animJumpHash = Animator.StringToHash("Jump"); 
+
     private CharacterController controller;
     private Vector3 velocity;
     private Vector3 currentMove;
@@ -29,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Instance = this;
         controller = GetComponent<CharacterController>();
+        if (animator == null) animator = GetComponentInChildren<Animator>(); // fallback
     }
 
     void Update()
@@ -59,6 +65,10 @@ public class PlayerMovement : MonoBehaviour
         Vector3 targetMove = inputDir * speed;
         currentMove = Vector3.Lerp(currentMove, targetMove, acceleration * Time.deltaTime);
 
+        // --- ANIMATION UPDATE ---
+        float moveMagnitude = new Vector3(currentMove.x, 0, currentMove.z).magnitude;
+        animator.SetFloat(animSpeedHash, moveMagnitude); // Will drive walk/run blend
+
         // Rotate if moving
         if (inputDir != Vector3.zero)
         {
@@ -72,7 +82,10 @@ public class PlayerMovement : MonoBehaviour
 
         // Jump
         if (Input.GetButtonDown("Jump") && isGrounded)
+        {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            animator.SetTrigger(animJumpHash); // Play jump animation
+        }
 
         // Apply gravity
         velocity.y += gravity * Time.deltaTime;
