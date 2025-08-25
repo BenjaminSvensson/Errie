@@ -1,0 +1,11 @@
+{
+    "asset": "186d117a68031a4449303fc51a1c2ea0",
+    "fileName": "0198e26b-0d6f-714a-9617-23fa7218a836.pose.json",
+    "prompt": "rain effect animation",
+    "negativePrompt": "",
+    "model": "a9c27ca4-3ec9-43e8-96cd-ee891aba64c5",
+    "modelName": "Text to Motion",
+    "customSeed": 1626363634,
+    "w3CTraceId": "f34c92998290d27a79b3bd5d9d860d44",
+    "isTrimmed": false
+}
