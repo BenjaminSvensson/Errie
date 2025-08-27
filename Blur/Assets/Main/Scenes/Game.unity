@@ -869,6 +869,54 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 15.461721, y: 6.286687, z: 0.41345406}
   m_Center: {x: -3.2625856, y: 2.643343, z: -0.29327297}
+--- !u!1 &105490563
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 105490565}
+  - component: {fileID: 105490564}
+  m_Layer: 0
+  m_Name: BedRoomLightsDistanceManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &105490564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105490563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb8be4e46b82edb4ea65f4ca5b9cacad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LightActivator
+  lights:
+  - {fileID: 797802103}
+  - {fileID: 1967785039}
+  activationDistance: 10
+--- !u!4 &105490565
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105490563}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 26.83877, y: 4.21, z: -12.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &120416481
 GameObject:
   m_ObjectHideFlags: 0
@@ -1720,7 +1768,7 @@ GameObject:
   - component: {fileID: 239620393}
   - component: {fileID: 239620392}
   m_Layer: 0
-  m_Name: Cube (7)
+  m_Name: Leg1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1812,11 +1860,11 @@ Transform:
   m_GameObject: {fileID: 239620391}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 29.51464, y: -8.031283, z: -4.127891}
+  m_LocalPosition: {x: 29.51464, y: -8.031283, z: -4.1278906}
   m_LocalScale: {x: 0.15368, y: 0.6820838, z: 0.14256}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1655128441}
+  m_Father: {fileID: 1363164389}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &250256180
 GameObject:
@@ -2052,7 +2100,7 @@ GameObject:
   - component: {fileID: 280200904}
   - component: {fileID: 280200903}
   m_Layer: 0
-  m_Name: Point Light (3)
+  m_Name: KitchenLight1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2286,7 +2334,7 @@ Transform:
   m_GameObject: {fileID: 280258400}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.5459136, z: -0, w: 0.83784145}
-  m_LocalPosition: {x: 23.34, y: 2.95, z: -15.71}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2386,6 +2434,54 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!1 &302215528
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 302215530}
+  - component: {fileID: 302215529}
+  m_Layer: 0
+  m_Name: OutsideLightsDistanceManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &302215529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302215528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb8be4e46b82edb4ea65f4ca5b9cacad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LightActivator
+  lights:
+  - {fileID: 901577724}
+  - {fileID: 1425115330}
+  activationDistance: 50
+--- !u!4 &302215530
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302215528}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -75.99, y: 4.21, z: 48.37}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &313607714
 GameObject:
   m_ObjectHideFlags: 0
@@ -3226,7 +3322,7 @@ GameObject:
   - component: {fileID: 427429968}
   - component: {fileID: 427429967}
   m_Layer: 0
-  m_Name: Cube (3)
+  m_Name: Leg1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3322,7 +3418,7 @@ Transform:
   m_LocalScale: {x: 0.15368, y: 0.38064, z: 0.14256}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1655128441}
+  m_Father: {fileID: 1504353882}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &430160269
 GameObject:
@@ -4181,7 +4277,7 @@ GameObject:
   - component: {fileID: 608818272}
   - component: {fileID: 608818271}
   m_Layer: 0
-  m_Name: Cube (4)
+  m_Name: Leg3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4277,7 +4373,7 @@ Transform:
   m_LocalScale: {x: 0.15368, y: 0.38064, z: 0.14256}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1655128441}
+  m_Father: {fileID: 1504353882}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &659302254
 GameObject:
@@ -4325,7 +4421,7 @@ GameObject:
   - component: {fileID: 691992129}
   - component: {fileID: 691992128}
   m_Layer: 6
-  m_Name: Cube
+  m_Name: Bedmain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4417,11 +4513,11 @@ Transform:
   m_GameObject: {fileID: 691992127}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 30.66364, y: -7.9112835, z: -5.4378905}
+  m_LocalPosition: {x: 30.66364, y: -7.9112835, z: -5.43789}
   m_LocalScale: {x: 1.3582686, y: 0.22148015, z: 2.9044816}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1655128441}
+  m_Father: {fileID: 1504353882}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &698664312
 GameObject:
@@ -4869,7 +4965,7 @@ GameObject:
   - component: {fileID: 766906716}
   - component: {fileID: 766906715}
   m_Layer: 6
-  m_Name: Cube (2)
+  m_Name: Bedsheet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4961,11 +5057,11 @@ Transform:
   m_GameObject: {fileID: 766906714}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 30.66164, y: -7.7412834, z: -5.884891}
+  m_LocalPosition: {x: 30.66164, y: -7.7412834, z: -5.8848906}
   m_LocalScale: {x: 1.3273911, y: 0.09545075, z: 2.0659075}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1655128441}
+  m_Father: {fileID: 1504353882}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &774273542
 GameObject:
@@ -5258,7 +5354,7 @@ GameObject:
   - component: {fileID: 797802103}
   - component: {fileID: 797802102}
   m_Layer: 0
-  m_Name: Point Light (1)
+  m_Name: BedroomLight1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5802,6 +5898,54 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 905642650799818776, guid: 2ee75e50081d1b04f9feb68d4b7c1b30, type: 3}
   m_PrefabInstance: {fileID: 850356173}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &855256040
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 855256042}
+  - component: {fileID: 855256041}
+  m_Layer: 0
+  m_Name: BedRoomLightsDistanceManager (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &855256041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 855256040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb8be4e46b82edb4ea65f4ca5b9cacad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LightActivator
+  lights:
+  - {fileID: 280200904}
+  - {fileID: 1112679949}
+  activationDistance: 10
+--- !u!4 &855256042
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 855256040}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 27.35, y: 4.21, z: 3.04}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &858531613 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6868129227592755742, guid: 3f5600a050debc6479b011bc7a07987a, type: 3}
@@ -6041,7 +6185,7 @@ GameObject:
   - component: {fileID: 901577724}
   - component: {fileID: 901577723}
   m_Layer: 0
-  m_Name: Point Light (5)
+  m_Name: OutsideMainEnteranceLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6595,7 +6739,7 @@ GameObject:
   - component: {fileID: 1000211363}
   - component: {fileID: 1000211362}
   m_Layer: 0
-  m_Name: Cube (10)
+  m_Name: Leg4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6687,11 +6831,11 @@ Transform:
   m_GameObject: {fileID: 1000211361}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 28.868639, y: -8.031283, z: -4.726891}
+  m_LocalPosition: {x: 28.868639, y: -8.031283, z: -4.7268906}
   m_LocalScale: {x: 0.15368, y: 0.6820838, z: 0.14256}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1655128441}
+  m_Father: {fileID: 1363164389}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1010191105
 GameObject:
@@ -7112,7 +7256,7 @@ GameObject:
   - component: {fileID: 1112679949}
   - component: {fileID: 1112679948}
   m_Layer: 0
-  m_Name: Point Light (6)
+  m_Name: KitchenLight2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7240,7 +7384,7 @@ GameObject:
   - component: {fileID: 1131344579}
   - component: {fileID: 1131344578}
   m_Layer: 0
-  m_Name: Cube (6)
+  m_Name: Leg4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7332,11 +7476,11 @@ Transform:
   m_GameObject: {fileID: 1131344577}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 31.215637, y: -8.166284, z: -4.127891}
+  m_LocalPosition: {x: 31.215637, y: -8.166284, z: -4.1278906}
   m_LocalScale: {x: 0.15368, y: 0.38064, z: 0.14256}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1655128441}
+  m_Father: {fileID: 1504353882}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1147453200
 GameObject:
@@ -7595,7 +7739,7 @@ GameObject:
   - component: {fileID: 1157679174}
   - component: {fileID: 1157679173}
   m_Layer: 6
-  m_Name: Cube (11)
+  m_Name: BedDeskTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7687,11 +7831,11 @@ Transform:
   m_GameObject: {fileID: 1157679172}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 29.192638, y: -7.6722836, z: -4.426891}
+  m_LocalPosition: {x: 29.192638, y: -7.6722836, z: -4.4268904}
   m_LocalScale: {x: 0.83944476, y: 0.085442424, z: 0.79037476}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1655128441}
+  m_Father: {fileID: 1363164389}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1157901203
 GameObject:
@@ -7768,7 +7912,7 @@ GameObject:
   - component: {fileID: 1194843032}
   - component: {fileID: 1194843031}
   m_Layer: 6
-  m_Name: Cube (1)
+  m_Name: Pillow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7860,11 +8004,11 @@ Transform:
   m_GameObject: {fileID: 1194843030}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 30.58964, y: -7.7412834, z: -4.3648906}
+  m_LocalPosition: {x: 30.589638, y: -7.7412834, z: -4.36489}
   m_LocalScale: {x: 0.83944476, y: 0.12226147, z: 0.61685383}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1655128441}
+  m_Father: {fileID: 1504353882}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1218353145
 GameObject:
@@ -8101,7 +8245,7 @@ GameObject:
   - component: {fileID: 1245599379}
   - component: {fileID: 1245599378}
   m_Layer: 0
-  m_Name: Cube (9)
+  m_Name: Leg2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8193,11 +8337,11 @@ Transform:
   m_GameObject: {fileID: 1245599377}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 29.51464, y: -8.031283, z: -4.726891}
+  m_LocalPosition: {x: 29.51464, y: -8.031283, z: -4.7268906}
   m_LocalScale: {x: 0.15368, y: 0.6820838, z: 0.14256}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1655128441}
+  m_Father: {fileID: 1363164389}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1247536451
 GameObject:
@@ -9347,6 +9491,42 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 689430a0ed684b548bf7a45d8b0c767a, type: 3}
+--- !u!1 &1363164388
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1363164389}
+  m_Layer: 0
+  m_Name: BedDesk
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1363164389
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1363164388}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1157679176}
+  - {fileID: 239620395}
+  - {fileID: 1245599381}
+  - {fileID: 2036662436}
+  - {fileID: 1000211365}
+  m_Father: {fileID: 1655128441}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1378414839
 GameObject:
   m_ObjectHideFlags: 0
@@ -9650,7 +9830,7 @@ GameObject:
   - component: {fileID: 1425115330}
   - component: {fileID: 1425115329}
   m_Layer: 0
-  m_Name: Point Light (4)
+  m_Name: OutsideWindowLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9892,6 +10072,44 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4228193443592075690, guid: 0df88a16f7319204d81d32941249e163, type: 3}
   m_PrefabInstance: {fileID: 1466944005}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1504353881
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1504353882}
+  m_Layer: 0
+  m_Name: Bed
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1504353882
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504353881}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 691992131}
+  - {fileID: 1194843034}
+  - {fileID: 766906718}
+  - {fileID: 427429970}
+  - {fileID: 1941154449}
+  - {fileID: 608818274}
+  - {fileID: 1131344581}
+  m_Father: {fileID: 1655128441}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1524818214
 GameObject:
   m_ObjectHideFlags: 0
@@ -10394,7 +10612,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1655128441}
   m_Layer: 0
-  m_Name: MoreGrayboxing
+  m_Name: GrayBoxing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10413,12 +10631,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 691992131}
-  - {fileID: 1194843034}
-  - {fileID: 1157679176}
+  - {fileID: 1504353882}
+  - {fileID: 1363164389}
   - {fileID: 1862332541}
   - {fileID: 1218353146}
-  - {fileID: 766906718}
   - {fileID: 887841008}
   - {fileID: 1284137516}
   - {fileID: 250256181}
@@ -10426,10 +10642,6 @@ Transform:
   - {fileID: 789209204}
   - {fileID: 1392394619}
   - {fileID: 21969624}
-  - {fileID: 427429970}
-  - {fileID: 1941154449}
-  - {fileID: 239620395}
-  - {fileID: 1245599381}
   - {fileID: 132182909}
   - {fileID: 1987484313}
   - {fileID: 774273546}
@@ -10446,8 +10658,6 @@ Transform:
   - {fileID: 44127934}
   - {fileID: 1796628881}
   - {fileID: 1350122654}
-  - {fileID: 2036662436}
-  - {fileID: 1000211365}
   - {fileID: 1049838880}
   - {fileID: 1996426818}
   - {fileID: 147511240}
@@ -10473,8 +10683,6 @@ Transform:
   - {fileID: 160348184}
   - {fileID: 868133322}
   - {fileID: 766751585}
-  - {fileID: 608818274}
-  - {fileID: 1131344581}
   - {fileID: 260025878}
   - {fileID: 2105242242}
   - {fileID: 81078035}
@@ -12463,7 +12671,7 @@ GameObject:
   - component: {fileID: 1941154447}
   - component: {fileID: 1941154446}
   m_Layer: 0
-  m_Name: Cube (5)
+  m_Name: Leg2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12555,11 +12763,11 @@ Transform:
   m_GameObject: {fileID: 1941154445}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 30.09864, y: -8.166284, z: -4.127891}
+  m_LocalPosition: {x: 30.09864, y: -8.166284, z: -4.1278906}
   m_LocalScale: {x: 0.15368, y: 0.38064, z: 0.14256}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1655128441}
+  m_Father: {fileID: 1504353882}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1947348066
 GameObject:
@@ -12738,7 +12946,7 @@ GameObject:
   - component: {fileID: 1967785039}
   - component: {fileID: 1967785038}
   m_Layer: 0
-  m_Name: Point Light (2)
+  m_Name: BedroomLight2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13417,7 +13625,7 @@ GameObject:
   - component: {fileID: 2036662434}
   - component: {fileID: 2036662433}
   m_Layer: 0
-  m_Name: Cube (8)
+  m_Name: Leg3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13509,11 +13717,11 @@ Transform:
   m_GameObject: {fileID: 2036662432}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 28.868639, y: -8.031283, z: -4.127891}
+  m_LocalPosition: {x: 28.868639, y: -8.031283, z: -4.1278906}
   m_LocalScale: {x: 0.15368, y: 0.6820838, z: 0.14256}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1655128441}
+  m_Father: {fileID: 1363164389}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2105242241
 GameObject:
@@ -13756,3 +13964,6 @@ SceneRoots:
   - {fileID: 2030866555}
   - {fileID: 1354970460}
   - {fileID: 788693486}
+  - {fileID: 105490565}
+  - {fileID: 855256042}
+  - {fileID: 302215530}

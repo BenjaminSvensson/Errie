@@ -3,8 +3,8 @@ using UnityEngine;
 public class WorldEndEvent : MonoBehaviour
 {
     [Header("End Time")]
-    [Range(0, 23)] public int endHour = 23;
-    [Range(0, 59)] public int endMinute = 59;
+    [Range(0, 23)] public int endHour = 6;
+    [Range(0, 59)] public int endMinute = 0;
 
     private void OnEnable()
     {
@@ -27,6 +27,5 @@ public class WorldEndEvent : MonoBehaviour
     private void TriggerWorldEnd()
     {
         Debug.Log("World ends here!");
-        // TODO: fade to black, game over, cutscene, etc.
     }
 }
