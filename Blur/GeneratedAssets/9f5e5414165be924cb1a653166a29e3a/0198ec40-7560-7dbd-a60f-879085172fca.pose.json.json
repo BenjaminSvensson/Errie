@@ -1,0 +1,11 @@
+{
+    "asset": "9f5e5414165be924cb1a653166a29e3a",
+    "fileName": "0198ec40-7560-7dbd-a60f-879085172fca.pose.json",
+    "prompt": "\"Idle Animation\" the player standing idle",
+    "negativePrompt": "",
+    "model": "a9c27ca4-3ec9-43e8-96cd-ee891aba64c5",
+    "modelName": "Text to Motion",
+    "customSeed": 1351993044,
+    "w3CTraceId": "c11bd788509f0416e6fdee317c0547a6",
+    "isTrimmed": false
+}

@@ -1,0 +1,11 @@
+{
+    "asset": "dc6dc2f5727e2a9428416c0a4bcb0e1a",
+    "fileName": "0198ec3d-a6b9-7a52-99d9-315dbe70163e.pose.json",
+    "prompt": "\"Interact animation\" the character should bring its right arm forward and look like its interacting with something before bringing the hand back ",
+    "negativePrompt": "",
+    "model": "a9c27ca4-3ec9-43e8-96cd-ee891aba64c5",
+    "modelName": "Text to Motion",
+    "customSeed": 1162474226,
+    "w3CTraceId": "7fbd997efd0301c0308678d08da833e2",
+    "isTrimmed": false
+}

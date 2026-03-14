@@ -1,0 +1,11 @@
+{
+    "asset": "9f5e5414165be924cb1a653166a29e3a",
+    "fileName": "0198ec41-7f28-7b71-8060-755df14bcbbd.pose.json",
+    "prompt": "\"Perfect Looping Idle Animation\" the animation of player standing idle with the last frame being identical to the last",
+    "negativePrompt": "",
+    "model": "a9c27ca4-3ec9-43e8-96cd-ee891aba64c5",
+    "modelName": "Text to Motion",
+    "customSeed": 469935795,
+    "w3CTraceId": "633c6d1d801890efd83b0c832738d7d5",
+    "isTrimmed": false
+}
